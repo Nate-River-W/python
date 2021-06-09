@@ -49,4 +49,4 @@ for url in list_links:
         dontworklist.append(f'{url} - Не работает')
 print('\n*****    Cписок не работающих ссылок    ******\n')
 print('\n'.join(dontworklist))
-print('5')
+
