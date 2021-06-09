@@ -2,7 +2,20 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <title>First site</title>
     <style>
+        header{
+        text-align: center;
+        height: 100px;
+        width: 100%;
+        border-bottom: 3px solid white;
+        background: url(universe-1566159_960_720.webp);
+        background-size: 100%;
+        align-items: flex-end;
+        display: flex;
+        justify-content: center;
+    }
+    
     .menu-button{
         width: 150px;
         height: 50px;
@@ -12,6 +25,9 @@
         justify-content: center;
         border-left: 0;
 
+    }
+    .left{
+        border-left: 1px solid black;
     }
     .menu-button:hover{
         background:black;
@@ -60,24 +76,12 @@
         margin-bottom: 200px;
     }
 
-
-    header{
-        text-align: center;
-        height: 100px;
-        width: 100%;
-        border-bottom: 3px solid white;
-        background: url(universe-1566159_960_720.webp);
-        background-size: 100%;
-        align-items: flex-end;
-        display: flex;
-    }
-
     </style>
 </head>
 <body>
 <header>
     <a class="nav-links" href="https://google.com" >
-        <span class="menu-button">
+        <span class="menu-button left">
             Меню
         </span>
     </a>
