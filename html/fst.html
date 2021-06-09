@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+    .nav{
+        width: 100px;
+        height: 50px;
+        border: 1px solid black;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .nav-links{
+        text-decoration: none;
+        color: black;
+
+
+    }
+
+    body{
+        background: url('kosmos.jpg');
+        margin: 0;
+
+    }
+
+    .parent{
+        border: 4px solid #b2ceba;
+        border-radius: 5px;
+        margin: 100px;
+        height: auto;
+        display: flex;
+        padding: 50px;
+        background-color: seashell;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+
+    .child{
+        border: 4px solid black;
+        width: 20%;
+        height: 300px;
+        background-color: teal;
+        border-radius: 20px;
+
+
+    }
+    .child:nth-child(-n+4){
+        margin-bottom: 200px;
+    }
+
+
+    header{
+        text-align: center;
+        height: 100px;
+        width: 100%;
+        border-bottom: 3px solid white;
+        background: url(universe-1566159_960_720.webp);
+        background-size: 100%;
+        align-items: flex-end;
+        display: flex;
+    }
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="nav">
+        <a class="nav-links" href="https://google.com" >
+            Меню
+        </a>
+    </div>
+    <div class="nav">
+        <a class="nav-links" href="https://google.com">
+            Ссылки
+        </a>
+    </div>
+    <div class="nav">
+        <a class="nav-links" href="https://google.com">
+            Помощь
+        </a>
+    </div>
+
+</header>
+
+
+<div class="parent">
+        <div class="child">
+        </div>
+        <div class="child">
+        </div>
+        <div class="child">
+        </div>
+        <div class="child">
+        </div>
+        <div class="child">
+        </div>
+        <div class="child">
+        </div>
+        <div class="child">
+        </div>
+        <div class="child">
+        </div>
+
+</div>
+
+
+
+</body>
+
+</html>
