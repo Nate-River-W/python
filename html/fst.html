@@ -8,8 +8,9 @@
         text-align: center;
         height: 100px;
         width: 100%;
-        border-bottom: 3px solid white;
-        background: url(universe-1566159_960_720.webp);
+
+        /* background: url(universe-1566159_960_720.webp); */
+        background-color: #24292e;
         background-size: 100%;
         align-items: flex-end;
         display: flex;
@@ -19,25 +20,31 @@
     .menu-button{
         width: 150px;
         height: 50px;
-        border: 1px solid black;
+        border: 1px solid #fff;
         display:flex;
         align-items: center;
         justify-content: center;
         border-left: 0;
+        border-bottom: 5px solid transparent;
+        margin-bottom: -5px;
+    
+        
 
     }
     .left{
-        border-left: 1px solid black;
+        border-left: 1px solid #fff;
     }
     .menu-button:hover{
-        background:black;
+        background: black;
+        box-shadow: 0 0 3px 0 red;
+        border-bottom: 5px solid red;
     }
 
     .nav-links{
         text-decoration: none;
         color: black;
         font-size: 20px;
-        color: aquamarine;
+        color: #fff;
         display: block;
 
     }
@@ -64,12 +71,12 @@
 
 
     .child{
-        border: 1px solid black;
-        width: 20%;
+        /* border: 1px solid black; */
+        width: 23%;
         height: 300px;
         background-color: teal;
         border-radius: 20px;
-        box-shadow: 2px 2px 2px 2px;
+        box-shadow: 0px 0px 10px 0px;
 
     }
     .child:nth-child(-n+4){
