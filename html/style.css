@@ -28,12 +28,13 @@ a{
     flex-direction: column;
     justify-content: space-between;
     padding: 70px 10px 38px;
+
 }
 .header__subtitle{
     font-size: 18px;
     line-height: 25px;
     font-weight: 400;
-    margin-top: auto ;
+    margin-top: auto;
 }
 .header__title{
     font-weight: 700;
@@ -47,8 +48,8 @@ a{
     font-weight: 57px;
 }
 .header__button{
-    margin-bottom: auto;
     margin-top: 50px;
+    margin-bottom: auto;
 }
 .button__path{
     transition: fill .5s;
