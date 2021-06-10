@@ -1,3 +1,14 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 400;
+}
 a{
     color: inherit;
     text-decoration: none;
@@ -14,4 +25,20 @@ a{
     flex-direction: column;
     justify-content: space-between;
     padding: 70px 10px 38px;
+}
+.header__subtitle{
+    font-size: 18px;
+    line-height: 25;
+    font-weight: 400;
+}
+.header__title{
+    font-weight: 700;
+    line-height: 87px;
+    font-size: 64px;
+
+}
+.header__title span{
+    display: block;
+    font-size: 42px;
+    font-weight: 57px;
 }
