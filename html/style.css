@@ -9,6 +9,8 @@ body{
     font-size: 14px;
     line-height: 19px;
     font-weight: 400px;
+    margin: 0;
+    padding: 0;
 }
 
 a{
@@ -40,18 +42,18 @@ ul{
     line-height: 25px;
     font-weight: 400;
     margin-top: auto;
+    margin-bottom: 0;
 }
-
 .header__title{
     font-weight: 700;
     line-height: 87px;
     font-size: 64px;
+    margin: 0;
 }
 
 .header__button{
     margin-top: 50px;
     margin-bottom: auto;
-    align-self: center;
 }
 
 .header__title span{
