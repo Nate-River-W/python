@@ -35,6 +35,7 @@ ul{
     flex-direction: column;
     justify-content: space-between;
     padding: 70px 10px 38px;
+    margin-bottom: 150px;
 }
 
 .header__subtitle{
