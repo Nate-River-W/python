@@ -34,5 +34,5 @@ data = {
 
 session = requests.Session()
 s = session.get('https://www.ismet.kz', headers=headers)
-r = requests.post('https://integration.i-smet.kz/bpmn/api/v2/public/search/all', json=data, headers=headers)
-print(json.dumps(r.json(), indent=2))
+r = requests.post('https://integration.ismet.kz/bpmn/api/v2/public/search/all', json=data, headers=headers)
+print(json.dumps(r.json(), indent=2, ensure_ascii=False))

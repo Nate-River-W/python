@@ -9,7 +9,7 @@ class Application:
         #self.options.add_argument("user-agent=User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36")
         #self.options.add_argument("--disable-blink-features=AutomationControlled")
         #self.options.add_argument("--headless")
-        self.driver = webdriver.Chrome('C:/Users/Nate/Desktop/Python/pytest/chromedriver.exe',  options=self.options)
+        self.driver = webdriver.Chrome(executable_path='C:/Users/Near/Desktop/Python/test/chromedriver.exe')
         self.driver.implicitly_wait(30)
         self.vars = {}
 
