@@ -1,5 +1,6 @@
 import requests
 import fake_useragent
+import json
 # session = requests.Session()
 #
 user = fake_useragent.UserAgent().random
@@ -27,10 +28,11 @@ headers = {
 
 data = {
     "query": "131140025304",
-    "desc": False
+    "from": 0,
+    "size": 50
 }
 
 session = requests.Session()
 s = session.get('https://www.ismet.kz', headers=headers)
-r = session.post('https://www.ismet.kz/bin/ocp/publicbpms.rest/search/company?BPMS_VERSION=v2', data=data, headers=headers)
-print(r)
+r = requests.post('https://integration.i-smet.kz/bpmn/api/v2/public/search/all', json=data, headers=headers)
+print(json.dumps(r.json(), indent=2))
