@@ -47,7 +47,8 @@ valid_bin = cheking_bin()
 
 def send_deal():
     data_sendDeal['binIin'] = valid_bin
-    potential_deal = requests.post('https://integration.ismet.kz/bpmn/api/v2/public/potentialDeal/mobile', json=data_sendDeal)
+    potential_deal = requests.post('https://integration.ismet.kz/bpmn/api/v2/public/potentialDeal/mobile',
+                                   json=data_sendDeal)
     potential_deal = potential_deal.json()
 
     return potential_deal['id']
@@ -67,7 +68,8 @@ def get_token_code():
 def get_deal_id():
     data_getDealId['id'] = send_deal()
     data_getDealId['token'] = get_token_code()
-    end_id = requests.post("https://integration.ismet.kz/bpmn/api/v2/public/potentialDeal/submit", json=data_getDealId)
+    end_id = requests.post("https://integration.ismet.kz/bpmn/api/v2/public/potentialDeal/submit",
+                           json=data_getDealId)
 
     print(end_id.json())
 
