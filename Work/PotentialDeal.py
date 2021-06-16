@@ -1,8 +1,18 @@
-import json
 import requests
 
+BIN = '131140025304'
+
+
+def cheking_bin(BIN):
+    check_bin = requests.get(f'https://www.ismet.kz/bin/ocp/publicbpms.rest/company/{BIN}/info?BPMS_VERSION=v2')
+
+    return check_bin.json()['bin']
+
+
+valid_bin = cheking_bin(BIN)
+
 data = {
-    'binIin': "131140025304",
+    'binIin': valid_bin,
     'catalogId': 3345,
     'email': "nico.96@mail.ru",
     'isUseRecommendPo': False,
