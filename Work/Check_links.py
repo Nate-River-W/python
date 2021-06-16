@@ -8,18 +8,21 @@ listtest = []  # Список без дублей
 dont_work_list = []  # Cписок не работающих ссылок
 
 
-def get_html():
-    r = requests.get('https://www.ismet.kz/', headers=headers)
-    return r
+def get_response():
+    response = requests.get('https://www.ismet.kz/', headers=headers)
+    return response
 
 
-def get_content(html):
-    list_links = []  # Список с ссылками
-    soup = BS(html, 'html.parser')
+def get_links(response):
+    soup = BS(response, 'html.parser')
     urles = soup.find_all('a')
+    return urles
 
-    for url in urles:
-        link_txt = url.get('href')  # Поиск ссылок по URL
+
+def get_content(response):
+    list_links = []  # Список со ссылками
+    for url in get_links(response):
+        link_txt = url.get('href')  # Получение ссылок по URL
         if type(link_txt) == str:
             if '/ru' in link_txt:
                 link_txt = link_txt[23:]  # Обрез ссылки
@@ -35,8 +38,8 @@ def get_content(html):
         try:
             ru_code = requests.get(ru + url).status_code  # Проверка статус-кода РУ страниц
             kk_code = requests.get(kk + url).status_code  # Проверка статус-кода КЗ страниц
-            print(ru + url + '   -   ' + str(ru_code))
-            print(kk + url + '   -   ' + str(kk_code))
+            print(f'{ru}{url}     -     {str(ru_code)}')
+            print(f'{kk}{url}     -     {str(kk_code)}')
             if ru_code != 200:
                 dont_work_list.append(f'{ru}{url} - Ошибка {ru_code} Не работает')  # Нерабочие РУ ссылки
             elif kk_code != 200:
@@ -50,8 +53,8 @@ def get_content(html):
 
 
 def check_links():
-    html = get_html()
-    get_content(html.text)
+    response = get_response()
+    get_content(response.text)
 
 
 check_links()
