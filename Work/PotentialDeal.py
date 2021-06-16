@@ -44,6 +44,7 @@ def cheking_bin():
 
 valid_bin = cheking_bin()
 
+
 def send_deal():
     data['binIin'] = valid_bin
     potential_deal = requests.post('https://integration.ismet.kz/bpmn/api/v2/public/potentialDeal/mobile', json=data)

@@ -1,6 +1,5 @@
 def test():
-    a = 5
-    b = 7
-    return a, b
+    a = [1,2,3]
+    return a
 
-test()
+print(len(test()))
