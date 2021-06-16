@@ -2,17 +2,9 @@ import requests
 
 BIN = '131140025304'
 
-
-def cheking_bin(BIN):
-    check_bin = requests.get(f'https://www.ismet.kz/bin/ocp/publicbpms.rest/company/{BIN}/info?BPMS_VERSION=v2')
-
-    return check_bin.json()['bin']
-
-
-valid_bin = cheking_bin(BIN)
-
 data = {
-    'binIin': valid_bin,
+
+    'binIin': '',
     'catalogId': 3345,
     'email': "nico.96@mail.ru",
     'isUseRecommendPo': False,
@@ -24,32 +16,61 @@ data = {
 
 }
 
-
-potential_deal = requests.post('https://integration.ismet.kz/bpmn/api/v2/public/potentialDeal/mobile', json=data)
-potential_deal = potential_deal.json()
-
-sms_code = input('sms code:  ')
 data2 = {
 
-     'type': 'potentialDeal',
-     'emailOrPhone': 77075553518,
-     'code': sms_code,
-     'email': 'nico.96@mail.ru'
+    'type': 'potentialDeal',
+    'emailOrPhone': 77075553518,
+    'code': '',
+    'email': 'nico.96@mail.ru'
 
 }
-get_token_code = requests.post('https://integration.ismet.kz/bpmn/api/v1/public/accountRecover/verifyCode', json=data2)
-
-get_token_code = get_token_code.json()
-get_token_code = get_token_code['header']
 
 data3 = {
 
-  "id": potential_deal['id'],
-  "token": get_token_code['errorText'],
-  "phone": "77075553518"
-
+    "id": '',
+    "token": '',
+    "phone": "77075553518"
 
 }
-end_id = requests.post("https://integration.ismet.kz/bpmn/api/v2/public/potentialDeal/submit", json=data3)
 
-print(end_id.json())
+
+def cheking_bin():
+    check_bin = requests.get(f'https://www.ismet.kz/bin/ocp/publicbpms.rest/company/{BIN}/info?BPMS_VERSION=v2')
+    if 'bin' in check_bin.json():
+        return check_bin.json()['bin']
+    else:
+        return f'{check_bin.json()}\nКомпания по БИНу - {BIN}, не прошла проверку'
+
+
+valid_bin = cheking_bin()
+
+def send_deal():
+    data['binIin'] = valid_bin
+    potential_deal = requests.post('https://integration.ismet.kz/bpmn/api/v2/public/potentialDeal/mobile', json=data)
+    potential_deal = potential_deal.json()
+
+    return potential_deal['id']
+
+
+def get_token_code():
+    sms_code = input('Sms code:  ')
+    data2['code'] = sms_code
+    token_code = requests.post('https://integration.ismet.kz/bpmn/api/v1/public/accountRecover/verifyCode', json=data2)
+
+    token_code = token_code.json()['header']
+    token_code = token_code['errorText']
+    return token_code
+
+
+def get_deal_id():
+    data3['id'] = send_deal()
+    data3['token'] = get_token_code()
+    end_id = requests.post("https://integration.ismet.kz/bpmn/api/v2/public/potentialDeal/submit", json=data3)
+
+    print(end_id.json())
+
+
+if len(valid_bin) == 12:
+    get_deal_id()
+else:
+    print(valid_bin)
