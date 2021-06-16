@@ -2,7 +2,7 @@ import requests
 
 BIN = '131140025304'
 
-data = {
+data_sendDeal = {
 
     'binIin': '',
     'catalogId': 3345,
@@ -16,7 +16,7 @@ data = {
 
 }
 
-data2 = {
+data_tokenCode = {
 
     'type': 'potentialDeal',
     'emailOrPhone': 77075553518,
@@ -25,7 +25,7 @@ data2 = {
 
 }
 
-data3 = {
+data_getDealId = {
 
     "id": '',
     "token": '',
@@ -46,8 +46,8 @@ valid_bin = cheking_bin()
 
 
 def send_deal():
-    data['binIin'] = valid_bin
-    potential_deal = requests.post('https://integration.ismet.kz/bpmn/api/v2/public/potentialDeal/mobile', json=data)
+    data_sendDeal['binIin'] = valid_bin
+    potential_deal = requests.post('https://integration.ismet.kz/bpmn/api/v2/public/potentialDeal/mobile', json=data_sendDeal)
     potential_deal = potential_deal.json()
 
     return potential_deal['id']
@@ -55,8 +55,9 @@ def send_deal():
 
 def get_token_code():
     sms_code = input('Sms code:  ')
-    data2['code'] = sms_code
-    token_code = requests.post('https://integration.ismet.kz/bpmn/api/v1/public/accountRecover/verifyCode', json=data2)
+    data_tokenCode['code'] = sms_code
+    token_code = requests.post('https://integration.ismet.kz/bpmn/api/v1/public/accountRecover/verifyCode',
+                                json=data_tokenCode)
 
     token_code = token_code.json()['header']
     token_code = token_code['errorText']
@@ -64,9 +65,9 @@ def get_token_code():
 
 
 def get_deal_id():
-    data3['id'] = send_deal()
-    data3['token'] = get_token_code()
-    end_id = requests.post("https://integration.ismet.kz/bpmn/api/v2/public/potentialDeal/submit", json=data3)
+    data_getDealId['id'] = send_deal()
+    data_getDealId['token'] = get_token_code()
+    end_id = requests.post("https://integration.ismet.kz/bpmn/api/v2/public/potentialDeal/submit", json=data_getDealId)
 
     print(end_id.json())
 
