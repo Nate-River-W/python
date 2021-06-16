@@ -13,15 +13,15 @@ def get_response():
     return response
 
 
-def get_links(response):
-    soup = BS(response, 'html.parser')
+def get_links(list_urles):
+    soup = BS(list_urles, 'html.parser')
     urles = soup.find_all('a')
     return urles
 
 
-def get_content(response):
+def get_content(content):
     list_links = []  # Список со ссылками
-    for url in get_links(response):
+    for url in get_links(content):
         link_txt = url.get('href')  # Получение ссылок по URL
         if type(link_txt) == str:
             if '/ru' in link_txt:
@@ -33,8 +33,10 @@ def get_content(response):
             listtest.append(i)
 
     list_links = listtest
+    return list_links
 
-    for url in list_links:
+def send_requests(list_links):
+    for url in get_content(list_links):
         try:
             ru_code = requests.get(ru + url).status_code  # Проверка статус-кода РУ страниц
             kk_code = requests.get(kk + url).status_code  # Проверка статус-кода КЗ страниц
@@ -42,7 +44,7 @@ def get_content(response):
             print(f'{kk}{url}     -     {str(kk_code)}')
             if ru_code != 200:
                 dont_work_list.append(f'{ru}{url} - Ошибка {ru_code} Не работает')  # Нерабочие РУ ссылки
-            elif kk_code != 200:
+            if kk_code != 200:
                 dont_work_list.append(f'{kk}{url} - Ошибка {kk_code} Не работает')  # Нерабочие КЗ ссылки
             else:
                 pass
@@ -54,7 +56,7 @@ def get_content(response):
 
 def check_links():
     response = get_response()
-    get_content(response.text)
+    send_requests(response.text)
 
 
 check_links()
