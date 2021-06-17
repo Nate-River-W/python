@@ -35,6 +35,7 @@ def get_content(content):
     list_links = listtest
     return list_links
 
+
 def send_requests(list_links):
     for url in get_content(list_links):
         try:

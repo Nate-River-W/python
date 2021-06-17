@@ -71,10 +71,10 @@ def get_deal_id():
     end_id = requests.post("https://integration.ismet.kz/bpmn/api/v2/public/potentialDeal/submit",
                            json=data_getDealId)
 
-    print(end_id.json())
+    return end_id.json()
 
 
 if len(valid_bin) == 12:
-    get_deal_id()
+    print(get_deal_id())
 else:
     print(valid_bin)
