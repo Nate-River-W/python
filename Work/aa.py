@@ -17,8 +17,8 @@ data_for_callback = {
     'name': 'Тест не звонить',
     'phone': '77075553518',
     'email': 'nico.96@mail.ru',
-    'server_id': 1,
-    'catalog_id': 3734,
+    'serverId': 1,
+    'catalogId': 3734,
     'registrationCheckbox': False
 
 }
