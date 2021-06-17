@@ -28,7 +28,7 @@ def get_response():
     response = requests.post(url, data=data_for_token)
     response = response.json()['access_token']
     token = {
-        'Authorization': f"Bearer {response}"
+        'Authorization': f'Bearer {response}'
         }
     return token
 
