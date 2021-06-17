@@ -51,13 +51,13 @@ def send_requests(list_links):
                 pass
         except Exception:  # Обработка исключений неправильных ссылок
             dont_work_list.append(f'{url} - Не работает')
-    print('\n*****    Cписок не работающих ссылок    ******\n')
-    print('\n'.join(dont_work_list))
+    list_dontworklinks = '\n'.join(dont_work_list)
+    return f'\n*****    Cписок не работающих ссылок    ******\n{list_dontworklinks}'
 
 
 def check_links():
     response = get_response()
-    send_requests(response.text)
+    print(send_requests(response.text))
 
 
 check_links()
