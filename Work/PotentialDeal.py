@@ -1,4 +1,5 @@
 import requests
+import datetime
 
 BIN = '131140025304'
 
@@ -74,7 +75,17 @@ def get_deal_id():
     return end_id.json()
 
 
+def save_result():
+    result_test = get_deal_id()["id"]
+    date = datetime.datetime.today()
+    date = date.strftime('%Y-%m-%d | %H:%M:%S')
+    all_deals = open('all_deals.txt', 'a')
+    output = f'{date}  -  id | {result_test}\n'
+    all_deals.write(output)
+    return output
+
+
 if len(valid_bin) == 12:
-    print(get_deal_id())
+    print(save_result())
 else:
     print(valid_bin)
