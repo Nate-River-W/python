@@ -2,6 +2,8 @@
 *::after,
 *::before{
     box-sizing: border-box;
+    margin: 0;
+    
 }
 
 body{
@@ -9,8 +11,7 @@ body{
     font-size: 14px;
     line-height: 19px;
     font-weight: 400px;
-    margin: 0;
-    padding: 0;
+
 }
 
 a{
@@ -22,7 +23,20 @@ ul{
     list-style: none;
 }
 
+.container{
+    max-width: 1220px;
+    padding: 0 10px;
+    margin: auto;
+}
 
+.title{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    color: #868585;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+}
 .header{
     background-image: url(image/bgheader.jpg);
     height: 100vh;
@@ -43,13 +57,11 @@ ul{
     line-height: 25px;
     font-weight: 400;
     margin-top: auto;
-    margin-bottom: 0;
 }
 .header__title{
     font-weight: 700;
     line-height: 87px;
     font-size: 64px;
-    margin: 0;
 }
 
 .header__button{
@@ -84,6 +96,30 @@ ul{
     align-items: center;
 }
 
-.social__link{
+.social__item{
     padding: 0 10px;
+}
+.service{
+    margin-bottom: 150px;
+}
+.service__inner{
+    display: flex;
+}
+.service__content{
+    flex-basis: 510px;
+    margin-right: 90px;
+}
+.service__box{
+    margin-bottom: 50px;
+
+}
+
+.service__box-title{
+    font-weight: 700;   
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 15px;
+}
+.service__img{
+    object-fit: cover;
 }
