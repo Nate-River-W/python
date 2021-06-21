@@ -174,3 +174,30 @@ ul{
 .info-slider__text{
     padding-bottom: 15px;
 }
+.slick-arrow{
+    position: absolute;
+    left: 275px;
+    bottom: -3px;
+    z-index: 5;
+    cursor: pointer;
+}
+.slick-right{
+    left: 340px;
+}
+.info__list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.info__list-item{
+    flex-basis: 235px;
+    margin-bottom: 17px;
+}
+.info__list-title{
+    margin-bottom: 5px;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 700;
+    margin-bottom: 5px;
+
+}
