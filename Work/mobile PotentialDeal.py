@@ -6,12 +6,12 @@ BIN = '131140025304'
 data_sendDeal = {
 
     'binIin': '',
-    'catalogId': 3345,
+    'catalogId': 3346,
     'email': "nico.96@mail.ru",
     'isUseRecommendPo': False,
     'name': "Тест не звонить",
     'phone': "77075553518",
-    'productGroupDivision': "2",
+    'productGroupDivision': "1",
     'registrationCheckbox': False,
     'serverId': 1
 
