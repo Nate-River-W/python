@@ -1,7 +1,7 @@
 import telebot
 import time
 
-bot = telebot.TeleBot('1221440480:AAFZQ8sq4pAtE2RYqrJi8oHcPIW79YY8Rrk')
+bot = telebot.TeleBot('1221440480:AAGBWJjnH6XlUvXgiQCRsx3mlZjyq6BfPTg')
 
 
 @bot.message_handler(content_types=['text'])

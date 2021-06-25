@@ -2,7 +2,7 @@ import telebot
 from bs4 import BeautifulSoup as BS
 import requests
 
-bot = telebot.TeleBot('1221440480:AAFZQ8sq4pAtE2RYqrJi8oHcPIW79YY8Rrk')
+bot = telebot.TeleBot('1221440480:AAGBWJjnH6XlUvXgiQCRsx3mlZjyq6BfPTg')
 
 linkshop = ('https://shop.kz/search/?q=')
 
