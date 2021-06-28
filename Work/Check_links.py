@@ -9,7 +9,7 @@ dont_work_list = []  # Cписок не работающих ссылок
 
 
 def get_response():
-    response = requests.get('https://www.ismet.kz/', headers=headers)
+    response = requests.get('https://www.ismet.kz/ru/main/about-marking', headers=headers)
     return response
 
 
