@@ -35,7 +35,7 @@ data_getDealId = {
 
 }
 
-
+# Функция проверки бина
 def cheking_bin():
     check_bin = requests.get(f'https://www.ismet.kz/bin/ocp/publicbpms.rest/company/{BIN}/info?BPMS_VERSION=v2')
     if 'bin' in check_bin.json():
@@ -46,7 +46,7 @@ def cheking_bin():
 
 valid_bin = cheking_bin()
 
-
+# Функция получения id сделки
 def send_deal():
     data_sendDeal['binIin'] = valid_bin
     potential_deal = requests.post('https://integration.ismet.kz/bpmn/api/v2/public/potentialDeal/mobile',
@@ -56,6 +56,8 @@ def send_deal():
     return potential_deal['id']
 
 id_deal = send_deal()
+
+# Функция подвтерждения смс-кода
 def get_token_code():
     data_tokenCode['code'] = getcode(id_deal)
     token_code = requests.post('https://integration.ismet.kz/bpmn/api/v1/public/accountRecover/verifyCode',
@@ -65,7 +67,7 @@ def get_token_code():
     token_code = token_code['errorText']
     return token_code
 
-
+# Функция отправки потенциальной сделки
 def get_deal_id():
     data_getDealId['id'] = id_deal
     data_getDealId['token'] = get_token_code()
@@ -74,7 +76,7 @@ def get_deal_id():
 
     return end_id.json()
 
-
+# Функция сохранения данных в файл
 def save_result():
     result_test = get_deal_id()["id"]
     date = datetime.datetime.today()
