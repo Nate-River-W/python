@@ -1,5 +1,6 @@
 import requests
 import datetime
+from getcode import getcode
 
 BIN = '131140025304'
 
@@ -54,10 +55,10 @@ def send_deal():
 
     return potential_deal['id']
 
-
+id_deal = send_deal()
 def get_token_code():
-    sms_code = input('Sms code:  ')
-    data_tokenCode['code'] = sms_code
+    #sms_code = input('Sms code:  ')
+    data_tokenCode['code'] = getcode(id_deal)
     token_code = requests.post('https://integration.ismet.kz/bpmn/api/v1/public/accountRecover/verifyCode',
                                json=data_tokenCode)
 
@@ -67,7 +68,7 @@ def get_token_code():
 
 
 def get_deal_id():
-    data_getDealId['id'] = send_deal()
+    data_getDealId['id'] = id_deal
     data_getDealId['token'] = get_token_code()
     end_id = requests.post("https://integration.ismet.kz/bpmn/api/v2/public/potentialDeal/submit",
                            json=data_getDealId)
@@ -84,8 +85,8 @@ def save_result():
     all_deals.write(output)
     return output
 
-
-if len(valid_bin) == 12:
-    print(save_result())
-else:
-    print(valid_bin)
+if __name__ == '__main__':
+    if len(valid_bin) == 12:
+        print(save_result())
+    else:
+        print(valid_bin)
