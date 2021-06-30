@@ -57,7 +57,6 @@ def send_deal():
 
 id_deal = send_deal()
 def get_token_code():
-    #sms_code = input('Sms code:  ')
     data_tokenCode['code'] = getcode(id_deal)
     token_code = requests.post('https://integration.ismet.kz/bpmn/api/v1/public/accountRecover/verifyCode',
                                json=data_tokenCode)
