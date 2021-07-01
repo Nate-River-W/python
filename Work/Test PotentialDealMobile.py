@@ -82,7 +82,7 @@ def save_result():
     date = datetime.datetime.today()
     date = date.strftime('%Y-%m-%d | %H:%M:%S')
     all_deals = open('all_deals.txt', 'a')
-    output = f'{date}  -  id | {result_test}\n'
+    output = f'{date}  -  id | {result_test} | Mobile\n'
     all_deals.write(output)
     return output
 
