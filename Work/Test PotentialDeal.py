@@ -14,6 +14,7 @@ data_sendDeal = {
     'name': "Тест не звонить",
     'phone': "77075553518",
     'productGroupDivision': "1",
+    'recaptchaToken': 'text',
     'registrationCheckbox': False,
     'serverId': 1
 
